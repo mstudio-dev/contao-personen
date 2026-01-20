@@ -1,0 +1,48 @@
+<?php $this->extend('block_searchable'); ?>
+
+<?php $this->block('content'); ?>
+
+<?php if ($this->empty): ?>
+    <p class="empty"><?= $this->empty ?></p>
+<?php else: ?>
+    <div class="person-list">
+        <div class="row">
+            <?php foreach ($this->items as $item): ?>
+                <div class="person-item col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                    <div class="person-card">
+                        <?php if ($item['profileImagePath']): ?>
+                            <?= $this->figure($item['profileImagePath'], null, null); ?>
+                        <?php endif; ?>
+                        
+                        <div class="person-card__content">
+                            <h3 class="person-card__name">
+                                <?php if ($item['academicTitle']): ?>
+                                    <?= $item['academicTitle'] ?> 
+                                <?php endif; ?>
+                                <?= $item['firstname'] ?> <?= $item['lastname'] ?>
+                            </h3>
+                            
+                            <?php if ($item['qualification']): ?>
+                                <p class="person-card__qualification">
+                                    <?= $item['qualification'] ?>
+                                </p>
+                            <?php endif; ?>
+                            
+                            <a href="<?= $this->request ?>?show=<?= $item['id'] ?>" 
+                               class="person-card__link" 
+                               title="Details ansehen">
+                                Details ansehen
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    </div>
+
+    <?php if ($this->pagination): ?>
+        <?= $this->pagination ?>
+    <?php endif; ?>
+<?php endif; ?>
+
+<?php $this->endblock(); ?>

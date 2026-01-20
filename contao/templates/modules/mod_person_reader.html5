@@ -1,0 +1,57 @@
+<?php $this->extend('block_searchable'); ?>
+
+<?php $this->block('content'); ?>
+
+<div class="person-reader">
+    <?php if ($this->person['heroImagePath']): ?>
+        <div class="person-hero">
+            <?= $this->figure($this->person['heroImagePath'], null, null); ?>
+        </div>
+    <?php endif; ?>
+
+    <div class="person-header">
+        <?php if ($this->person['profileImagePath']): ?>
+            <div class="person-profile-image">
+                <?= $this->figure($this->person['profileImagePath'], null, null); ?>
+            </div>
+        <?php endif; ?>
+
+        <div class="person-title">
+            <h1>
+                <?php if ($this->person['academicTitle']): ?>
+                    <?= $this->person['academicTitle'] ?> 
+                <?php endif; ?>
+                <?= $this->person['firstname'] ?> <?= $this->person['lastname'] ?>
+            </h1>
+            
+            <?php if ($this->person['qualification']): ?>
+                <p class="person-qualification">
+                    <?= $this->person['qualification'] ?>
+                </p>
+            <?php endif; ?>
+        </div>
+    </div>
+
+    <?php if ($this->person['intro']): ?>
+        <div class="person-intro">
+            <?= $this->person['intro'] ?>
+        </div>
+    <?php endif; ?>
+
+    <?php if ($this->person['vita']): ?>
+        <div class="person-vita">
+            <h2>Vita</h2>
+            <?= $this->person['vita'] ?>
+        </div>
+    <?php endif; ?>
+
+    <?php if ($this->person['email']): ?>
+        <div class="person-contact">
+            <a href="mailto:<?= $this->person['email'] ?>" class="person-email">
+                <?= $this->person['email'] ?>
+            </a>
+        </div>
+    <?php endif; ?>
+</div>
+
+<?php $this->endblock(); ?>
