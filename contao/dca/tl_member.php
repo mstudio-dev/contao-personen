@@ -12,6 +12,13 @@ $GLOBALS['TL_DCA']['tl_member']['fields']['qualification'] = [
 'sql' => "varchar(255) NOT NULL default ''"
 ];
 
+$GLOBALS['TL_DCA']['tl_member']['fields']['position'] = [
+'label' => ['Position', 'Position oder Funktion der Person'],
+'inputType' => 'text',
+'eval' => ['maxlength' => 255, 'tl_class' => 'w50'],
+'sql' => "varchar(255) NOT NULL default ''"
+];
+
 $GLOBALS['TL_DCA']['tl_member']['fields']['academicTitle'] = [
 'label' => ['Akademischer Titel', 'Akademischer Titel der Person'],
 'inputType' => 'text',
@@ -75,7 +82,7 @@ $GLOBALS['TL_DCA']['tl_member']['fields']['email']['eval']['mandatory'] = false;
 PaletteManipulator::create()
 ->addLegend('extra_legend', 'personal_legend', PaletteManipulator::POSITION_AFTER)
 ->addField(['academicTitle'], 'personal_legend', PaletteManipulator::POSITION_PREPEND)
-->addField('qualification', 'gender', PaletteManipulator::POSITION_AFTER)
+->addField(['qualification', 'position'], 'gender', PaletteManipulator::POSITION_AFTER)
 ->addField(['profileImage', 'heroImage', 'intro'], 'extra_legend', PaletteManipulator::POSITION_APPEND)
 ->addField('vita', 'intro', PaletteManipulator::POSITION_AFTER) // <--- HIER KORRIGIERT: 'vita' nach 'intro' verschoben
 ->applyToPalette('default', 'tl_member');
@@ -85,8 +92,9 @@ $GLOBALS['TL_DCA']['tl_member']['fields']['firstname']['eval']['tl_class'] = 'w2
 $GLOBALS['TL_DCA']['tl_member']['fields']['lastname']['eval']['tl_class'] = 'w25';
 $GLOBALS['TL_DCA']['tl_member']['fields']['language']['eval']['tl_class'] = 'w25';
 
-// Members list view: show qualification and academic title
+// Members list view: show qualification, position and academic title
 $GLOBALS['TL_DCA']['tl_member']['list']['label']['fields'][] = 'qualification';
+$GLOBALS['TL_DCA']['tl_member']['list']['label']['fields'][] = 'position';
 $GLOBALS['TL_DCA']['tl_member']['list']['label']['fields'][] = 'academicTitle';
 
 // Members list view: unset country, language and login fields
