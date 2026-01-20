@@ -6,21 +6,21 @@ use Contao\CoreBundle\DataContainer\PaletteManipulator;
 // Add fields
 
 $GLOBALS['TL_DCA']['tl_member']['fields']['qualification'] = [
-'label' => ['Qualifikation', 'Nennen Sie die Qualifikation(en) der Person'],
+'label' => &$GLOBALS['TL_LANG']['tl_member']['qualification'],
 'inputType' => 'text',
 'eval' => ['maxlength' => 255, 'tl_class' => 'w50'],
 'sql' => "varchar(255) NOT NULL default ''"
 ];
 
 $GLOBALS['TL_DCA']['tl_member']['fields']['position'] = [
-'label' => ['Position', 'Position oder Funktion der Person'],
+'label' => &$GLOBALS['TL_LANG']['tl_member']['position'],
 'inputType' => 'text',
 'eval' => ['maxlength' => 255, 'tl_class' => 'w50'],
 'sql' => "varchar(255) NOT NULL default ''"
 ];
 
 $GLOBALS['TL_DCA']['tl_member']['fields']['academicTitle'] = [
-'label' => ['Akademischer Titel', 'Akademischer Titel der Person'],
+'label' => &$GLOBALS['TL_LANG']['tl_member']['academicTitle'],
 'inputType' => 'text',
 'eval' => ['maxlength' => 64, 'tl_class' => 'w25'],
 'sql' => "varchar(64) NOT NULL default ''"
@@ -28,7 +28,7 @@ $GLOBALS['TL_DCA']['tl_member']['fields']['academicTitle'] = [
 
 
 $GLOBALS['TL_DCA']['tl_member']['fields']['profileImage'] = [
-'label' => ['Profilbild','Profilbild des Mitglieds'],
+'label' => &$GLOBALS['TL_LANG']['tl_member']['profileImage'],
 'inputType' => 'fileTree',
 'eval' => [
 'filesOnly' => true,
@@ -41,7 +41,7 @@ $GLOBALS['TL_DCA']['tl_member']['fields']['profileImage'] = [
 
 
 $GLOBALS['TL_DCA']['tl_member']['fields']['heroImage'] = [
-'label' => ['Hero-Bild','Großes Bild für Profilseite'],
+'label' => &$GLOBALS['TL_LANG']['tl_member']['heroImage'],
 'inputType' => 'fileTree',
 'eval' => [
 'filesOnly' => true,
@@ -53,7 +53,7 @@ $GLOBALS['TL_DCA']['tl_member']['fields']['heroImage'] = [
 ];
 
 $GLOBALS['TL_DCA']['tl_member']['fields']['intro'] = [
-'label' => ['Intro','Einleitender Text oder Zitat'],
+'label' => &$GLOBALS['TL_LANG']['tl_member']['intro'],
 'inputType' => 'textarea',
 'eval' => [
 'rte' => 'tinyMCE',
@@ -64,7 +64,7 @@ $GLOBALS['TL_DCA']['tl_member']['fields']['intro'] = [
 
 
 $GLOBALS['TL_DCA']['tl_member']['fields']['vita'] = [
-'label' => ['Vita','Lebenslauf der Person'],
+'label' => &$GLOBALS['TL_LANG']['tl_member']['vita'],
 'inputType' => 'textarea',
 'eval' => [
 'rte' => 'tinyMCE',
