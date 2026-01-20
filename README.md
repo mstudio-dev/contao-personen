@@ -97,27 +97,6 @@ Die Templates können überschrieben werden:
 - `templates/mod_person_list.html5`
 - `templates/mod_person_reader.html5`
 
-## Technische Details
-
-**Erweiterte tl_member Felder:**
-- academicTitle (varchar 64)
-- qualification (varchar 255)
-- position (varchar 255)
-- profileImage (binary 16 - UUID)
-- heroImage (binary 16 - UUID)
-- intro (mediumtext)
-- vita (mediumtext)
-
-**Frontend-Controller:**
-- `PersonListController` - SQL-Abfrage mit Mitgliedergruppen-Filter
-- `PersonReaderController` - Einzelansicht mit allen Feldern
-
-**Vorteile:**
-- ✅ Keine eigenen Tabellen - nutzt Contao-Standard tl_member
-- ✅ Zugriffsrechte über Mitgliedergruppen steuerbar
-- ✅ Integration mit bestehendem Mitglieder-System
-- ✅ Minimaler Footprint
-
 ## Lizenz
 
 MIT License
