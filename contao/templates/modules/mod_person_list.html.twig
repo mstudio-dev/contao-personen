@@ -1,0 +1,46 @@
+{% extends "@Contao/block_searchable.html.twig" %}
+
+{% block content %}
+    {% if empty %}
+        <p class="empty">Keine Personen gefunden.</p>
+    {% else %}
+        <div class="person-list">
+            <div class="row">
+                {% for item in items %}
+                    <div class="person-item col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                        <div class="person-card">
+                            {% if item.profileImagePath %}
+                                {{ figure(item.profileImagePath) }}
+                            {% endif %}
+                            
+                            <div class="person-card__content">
+                                <h3 class="person-card__name">
+                                    {% if item.academicTitle %}
+                                        {{ item.academicTitle }} 
+                                    {% endif %}
+                                    {{ item.firstname }} {{ item.lastname }}
+                                </h3>
+                                
+                                {% if item.qualification %}
+                                    <p class="person-card__qualification">
+                                        {{ item.qualification }}
+                                    </p>
+                                {% endif %}
+                                
+                                <a href="{{ request }}?show={{ item.id }}" 
+                                   class="person-card__link" 
+                                   title="Details ansehen">
+                                    Details ansehen
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        {% if pagination %}
+            {{ pagination|raw }}
+        {% endif %}
+    {% endif %}
+{% endblock %}

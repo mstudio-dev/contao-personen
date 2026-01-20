@@ -1,0 +1,55 @@
+{% extends "@Contao/block_searchable.html.twig" %}
+
+{% block content %}
+    <div class="person-reader">
+        {% if person.heroImagePath %}
+            <div class="person-hero">
+                {{ figure(person.heroImagePath) }}
+            </div>
+        {% endif %}
+
+        <div class="person-header">
+            {% if person.profileImagePath %}
+                <div class="person-profile-image">
+                    {{ figure(person.profileImagePath) }}
+                </div>
+            {% endif %}
+
+            <div class="person-title">
+                <h1>
+                    {% if person.academicTitle %}
+                        {{ person.academicTitle }} 
+                    {% endif %}
+                    {{ person.firstname }} {{ person.lastname }}
+                </h1>
+                
+                {% if person.qualification %}
+                    <p class="person-qualification">
+                        {{ person.qualification }}
+                    </p>
+                {% endif %}
+            </div>
+        </div>
+
+        {% if person.intro %}
+            <div class="person-intro">
+                {{ person.intro|raw }}
+            </div>
+        {% endif %}
+
+        {% if person.vita %}
+            <div class="person-vita">
+                <h2>Vita</h2>
+                {{ person.vita|raw }}
+            </div>
+        {% endif %}
+
+        {% if person.email %}
+            <div class="person-contact">
+                <a href="mailto:{{ person.email }}" class="person-email">
+                    {{ person.email }}
+                </a>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}
