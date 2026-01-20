@@ -62,6 +62,7 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['person_perPage'] = [
     'exclude' => true,
     'inputType' => 'text',
     'eval' => ['rgxp' => 'natural', 'tl_class' => 'w50'],
+    'default' => 0,
     'sql' => "smallint(5) unsigned NOT NULL default 0"
 ];
 
